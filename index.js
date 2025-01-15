@@ -31,7 +31,7 @@ app.post("/jokes", async (req, res) => {
     console.log("API URL: ", URL);
     
     try {
-        const result = await axios.get(`${URL}?type=single`);
+        const result = await axios.get(URL);
         res.render("index.ejs", { data: result.data });
         console.log(result.data);
     } catch (error) {
