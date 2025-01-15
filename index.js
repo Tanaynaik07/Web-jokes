@@ -26,11 +26,18 @@ app.get("/", async (req, res) => {
     res.render("index.ejs");
 });
 
-app.post("/jokes",async (req,res)=>{
-    const result=await axios.get(URL+"?type=single");
-    res.render("index.ejs",{data:result.data});
-    console.log(result.data);
-
-})
+app.post("/jokes", async (req, res) => {
+    // Log the URL to make sure it's correct
+    console.log("API URL: ", URL);
+    
+    try {
+        const result = await axios.get(`${URL}?type=single`);
+        res.render("index.ejs", { data: result.data });
+        console.log(result.data);
+    } catch (error) {
+        console.error("Error fetching joke: ", error);
+        res.status(500).send("Error fetching joke");
+    }
+});
 
 // export default app;
