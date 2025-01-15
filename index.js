@@ -19,9 +19,9 @@ app.set("view engine", "ejs");  // Assuming 'views' is your folder for EJS files
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.listen(port,()=>{
-    console.log(`Server running on port: ${port}`);
-})
+// app.listen(port,()=>{
+//     console.log(`Server running on port: ${port}`);
+// })
 app.get("/", async (req, res) => {
     res.render("index.ejs");
 });
@@ -32,3 +32,5 @@ app.post("/jokes",async (req,res)=>{
     console.log(result.data);
 
 })
+
+export default app;
