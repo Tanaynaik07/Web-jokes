@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Jokes</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+
+        }
+
+        button {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        button {
+            background-color: #3498db;
+        }
+
+        h1 {
+            background-color: white;
+            padding: 20px;
+        }
+
+        .mainarea{
+            max-width: 50vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainarea">
+
+ 
+
+        <form action="/jokes" method="POST">
+           
+            <button type="submit">Get a joke</button>
+        </form>
+
+        <%if(locals.data){%>
+            <h1>  
+                <%=data.joke%>
+            </h1>
+            <%}%>
+    </div>
+</body>
+
+</html>
